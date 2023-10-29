@@ -34,7 +34,7 @@ export default function PostForm() {
           autoClose: 2000,
           closeOnClick: true,
           type: "success",
-          isLoading: "false",
+          isLoading: false,
         });
 
         setTimeout(() => {
@@ -44,9 +44,9 @@ export default function PostForm() {
         toast.update(id, {
           render: "Notunuz eklenemedi",
           autoClose: 2000,
-          closeOnClick: true,
+          onClose: true,
           type: "success",
-          isLoading: "false",
+          isLoading: false,
         });
       }
     }

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 export const NOT_EKLE = "NOT_EKLE";
 export const NOT_EKLE_API = "NOT_EKLE";
 export const NOT_SIL = "NOT_SIL";
+export const GET_FROM_LOCAL = "GET_FROM_LOCAL";
 
 export function notEkle(not) {
   // ...
@@ -20,6 +21,12 @@ export function notSil(notId) {
   return {
     type: NOT_SIL,
     payload: notId,
+  };
+}
+
+export function getFromLocal() {
+  return {
+    type: GET_FROM_LOCAL,
   };
 }
 

@@ -1,4 +1,4 @@
-import { NOT_EKLE, NOT_EKLE_API, NOT_SIL } from "./actions";
+import { GET_FROM_LOCAL, NOT_EKLE, NOT_EKLE_API, NOT_SIL } from "./actions";
 
 const s10chLocalStorageKey = "s10ch";
 
@@ -34,13 +34,18 @@ function myReducers(state = baslangicDegerleri, action) {
   switch (action.type) {
     case NOT_EKLE:
       const addNote = { ...state, notlar: [action.payload, ...state.notlar] };
+      localStorageStateYaz(s10chLocalStorageKey, addNote);
+
       return addNote;
     case NOT_SIL:
       const stateAfterRemove = {
         ...state,
         notlar: state.notlar.filter((not) => not.id !== action.payload),
       };
+      localStorageStateYaz(s10chLocalStorageKey, stateAfterRemove);
       return stateAfterRemove;
+    case GET_FROM_LOCAL:
+      return baslangicNotlariniGetir(s10chLocalStorageKey);
     default:
       return state;
   }
